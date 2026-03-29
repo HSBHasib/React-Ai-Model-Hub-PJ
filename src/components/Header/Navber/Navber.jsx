@@ -1,0 +1,37 @@
+import React from 'react'
+import logo from '../../../assets/image/logo.png'
+
+const Navber = () => {
+  return (
+    <div>
+        <div className="navbar">
+        <div className="navbar-start">
+            <div className="flex items-center gap-2 font-bold text-xl">
+            <img className="w-10 " src={logo} alt="/logo.png" /> Ai Hub
+            </div>
+        </div>
+        <div className="navbar-center hidden md:flex">
+            <ul className="menu menu-horizontal gap-10 px-1 text-[17px]">
+            <li>
+                <a>Home</a>
+            </li>
+            <li>
+                <a>About</a>
+            </li>
+            <li>
+                <a>Services</a>
+            </li>
+            <li>
+                <a>Contact</a>
+            </li>
+            </ul>
+        </div>
+        <div className="navbar-end gap-5">
+            <a className="btn bg-red-500 hover:bg-red-600 rounded-full text-white">Get in Touch</a>
+        </div>
+        </div>
+    </div>
+  )
+}
+
+export default Navber
