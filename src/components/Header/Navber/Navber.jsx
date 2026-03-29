@@ -4,7 +4,7 @@ import logo from '../../../assets/image/logo.png'
 const Navber = () => {
   return (
     <div>
-        <div className="navbar">
+        <div className="navbar sm:px-3">
         <div className="navbar-start">
             <div className="flex items-center gap-2 font-bold text-xl">
             <img className="w-10 " src={logo} alt="/logo.png" /> Ai Hub
