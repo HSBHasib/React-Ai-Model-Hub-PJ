@@ -5,7 +5,9 @@ import Cart from "../Cart/Cart";
 
 const CardsContainer = ({modelData}) => {
     const models = use(modelData);
-    const [selectedType, setSelectedType] = useState('model')
+    const [selectedType, setSelectedType] = useState('model');
+    const [selectModel, setSelectModel] = useState([]);
+    
 
   return (
     <div className="space-y-10">
@@ -16,7 +18,7 @@ const CardsContainer = ({modelData}) => {
             cursor-pointer rounded-2xl text-sm font-medium`}>Models</button>
             <button onClick={() => setSelectedType('cart')} className={`px-16 py-[6.3px] 
                 ${selectedType === 'cart' ? 'bg-linear-to-r from-pink-600 to-red-600' : 'bg-white text-gray-500'} 
-             cursor-pointer rounded-2xl text-sm font-medium`}>Cart(0)</button>
+             cursor-pointer rounded-2xl text-sm font-medium`}>Cart({selectModel.length})</button>
         </div>
 
         {/* Cards Heading */}
@@ -28,8 +30,8 @@ const CardsContainer = ({modelData}) => {
         <div>
             {
                 selectedType === 'model' ?
-                <ModelCards data={models} />
-                : <Cart data={models} />
+                <ModelCards data={models} selectModel={selectModel} setSelectModel={setSelectModel} />
+                : <Cart selectModel={selectModel} setSelectModel={setSelectModel} />
             }
         </div>
     </div>

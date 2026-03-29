@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const DisplayModelCards = ({data}) => {
+const DisplayModelCards = ({data, selectModel, setSelectModel}) => {
     const {title, description, price, image, status} = data;
-    console.log(title);
+    const [isSubscribe, setIsSubscribe] = useState(false);
+    const hanldeSubscribeedData = () => {
+        if(!isSubscribe) {
+            setIsSubscribe(true);
+            setSelectModel([...selectModel, data]);
+        }
+    }
+    
   return (
     <div>
       <div className='shadow-lg rounded-4xl min-h-100'>
@@ -13,7 +20,7 @@ const DisplayModelCards = ({data}) => {
             <h2 className='text-xl font-bold'>{title}</h2>
             <p className='leading-5 text-sm text-gray-500'>{description}</p>
             <h1 className='font-bold text-2xl'>${price}<span className='font-normal text-[16px] text-gray-500'>/months</span></h1>
-            <button className='w-full bg-red-600 text-white p-2 font-semibold text-[17px] rounded-xl my-1 cursor-pointer active:scale-95'>Subscribe Now</button>
+            <button onClick={() => hanldeSubscribeedData()} className='w-full bg-red-600 text-white p-2 font-semibold text-[17px] rounded-xl my-1 cursor-pointer active:scale-95'>{isSubscribe ? 'Subscribed' : 'Subscribe Now' }</button>
         </div>
       </div>
     </div>
