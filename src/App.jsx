@@ -1,3 +1,4 @@
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header'
 import CardsContainer from './components/Main/CardsContainer/CardsContainer'
 
@@ -14,6 +15,7 @@ const App = () => {
     <div>
       <Header />
       <CardsContainer modelData={modelData} />
+      <Footer />
     </div>
   )
 }
