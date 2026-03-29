@@ -1,6 +1,8 @@
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header'
 import CardsContainer from './components/Main/CardsContainer/CardsContainer'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const fetchModel = async () => {
     const res = await fetch('/model.json');
@@ -16,6 +18,9 @@ const App = () => {
       <Header />
       <CardsContainer modelData={modelData} />
       <Footer />
+
+
+      <ToastContainer />
     </div>
   )
 }

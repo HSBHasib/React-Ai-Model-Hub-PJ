@@ -1,7 +1,7 @@
 import { RxCross2 } from "react-icons/rx";
 
-const DisplayCarts = ({selectedModelData, selectModel, setSelectModel, handleCroosBtn}) => { 
-  const {title, description, price, image, status} = selectedModelData;
+const DisplayCarts = ({selectedModelData, handleCroosBtn, setProsess, prosess}) => { 
+  const {title, description, price, image} = selectedModelData;
 
   return (
     <div>
@@ -21,7 +21,7 @@ const DisplayCarts = ({selectedModelData, selectModel, setSelectModel, handleCro
               <h1 className='text-2xl font-bold'>${price}</h1>
               <p className='text-gray-500 text-sm'>per month</p>
             </div>
-              <RxCross2 className="cursor-pointer" onClick={() => handleCroosBtn(selectedModelData)} size={20} />
+              <RxCross2 className="cursor-pointer" onClick={() => handleCroosBtn(selectedModelData, title)} size={20} />
           </div>
         </div>
       </div>

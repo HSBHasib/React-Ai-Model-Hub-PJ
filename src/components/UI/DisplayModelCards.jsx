@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const DisplayModelCards = ({data, selectModel, setSelectModel}) => {
     const {title, description, price, image, status} = data;
@@ -8,6 +9,7 @@ const DisplayModelCards = ({data, selectModel, setSelectModel}) => {
 
     const hanldeSubscribeedData = () => {
         if(!isAlreadySelected) {
+            toast.success(`${title} Subscribed successfully!`);
             setIsSubscribe(true);
             setSelectModel([...selectModel, data]);
         }
