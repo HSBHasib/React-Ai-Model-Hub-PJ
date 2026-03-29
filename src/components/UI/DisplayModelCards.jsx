@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 const DisplayModelCards = ({data, selectModel, setSelectModel}) => {
     const {title, description, price, image, status} = data;
     const [isSubscribe, setIsSubscribe] = useState(false);
+
+    const isAlreadySelected = selectModel.some(item => item.title === title);
+
     const hanldeSubscribeedData = () => {
-        if(!isSubscribe) {
+        if(!isAlreadySelected) {
             setIsSubscribe(true);
             setSelectModel([...selectModel, data]);
         }
@@ -20,7 +23,8 @@ const DisplayModelCards = ({data, selectModel, setSelectModel}) => {
             <h2 className='text-xl font-bold'>{title}</h2>
             <p className='leading-5 text-sm text-gray-500'>{description}</p>
             <h1 className='font-bold text-2xl'>${price}<span className='font-normal text-[16px] text-gray-500'>/months</span></h1>
-            <button onClick={() => hanldeSubscribeedData()} className='w-full bg-red-600 text-white p-2 font-semibold text-[17px] rounded-xl my-1 cursor-pointer active:scale-95'>{isSubscribe ? 'Subscribed' : 'Subscribe Now' }</button>
+            <button onClick={() => hanldeSubscribeedData()} className='w-full bg-red-600 text-white p-2 font-semibold text-[17px] rounded-xl my-1 cursor-pointer active:scale-95 transition-all duration-100'>
+                {isSubscribe ? 'Subscribed' : 'Subscribe Now' }</button>
         </div>
       </div>
     </div>
